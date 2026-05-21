@@ -258,6 +258,26 @@ a[aria-current="page"] {
   margin-top: 3.4em;
 }
 
+.gallery-page--living {
+  flex: 1 1 auto;
+  width: 100%;
+  justify-content: center;
+  margin-left: 0;
+}
+
+.gallery-page--living .gallery-frame,
+.gallery-page--living .gallery-image-wrap,
+.gallery-page--living .gallery-controls {
+  width: auto;
+}
+
+.gallery-page--living .gallery-frame .artwork-image {
+  width: 650px;
+  height: auto;
+  max-width: none;
+  max-height: none;
+}
+
 .about-page {
   width: 800px;
   flex: 0 0 800px;

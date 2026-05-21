@@ -1,8 +1,10 @@
-export function createGalleryImages(slug, title) {
-  return Array.from({ length: 20 }, (_, index) => {
+export function createGalleryImages(slug, title, options = {}) {
+  const { count = 20, extension = 'svg' } = options;
+
+  return Array.from({ length: count }, (_, index) => {
     const number = String(index + 1).padStart(2, '0');
     return {
-      src: `/images/${slug}/${number}.svg`,
+      src: `/images/${slug}/${number}.${extension}`,
       alt: `${title} ${number}`,
     };
   });

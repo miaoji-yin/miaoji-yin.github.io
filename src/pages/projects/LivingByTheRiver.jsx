@@ -8,7 +8,7 @@ export default function LivingByTheRiver() {
   return (
     <GalleryProjectPage
       title={title}
-      images={createGalleryImages(slug, title)}
+      images={createGalleryImages(slug, title, { count: 7, extension: 'jpg' })}
       text={createProjectText(title, '川のそばで暮らす')}
     />
   );
