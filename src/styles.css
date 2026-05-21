@@ -71,6 +71,7 @@ a[aria-current="page"] {
 
 .identity:hover,
 .identity[aria-current="page"] {
+  color: #111;
   font-style: normal;
 }
 
