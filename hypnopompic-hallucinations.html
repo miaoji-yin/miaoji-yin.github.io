@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hypnopompic Hallucinations - YIN Ying</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <aside class="sidebar" aria-label="Site navigation">
+        <a class="identity" href="./index.html">
+          <span class="identity__name">YIN Ying</span>
+          <span class="identity__chinese"><span>殷     </span><span class="identity__chinese-second">鶯</span></span>
+        </a>
+
+        <nav class="site-nav">
+          <div class="project-links">
+            <a href="./the-flowing-river-never-stops.html">The flowing river never stops</a>
+            <a href="./living-by-the-river.html">Living by the river</a>
+            <a href="./hypnopompic-hallucinations.html" aria-current="page">Hypnopompic Hallucinations</a>
+            <a href="./wind-of-okhotsk.html">Wind of Okhotsk</a>
+            <a href="./american-dream-park.html">American Dream Park</a>
+            <a href="./traces-of-sentience.html">Traces of Sentience</a>
+          </div>
+
+          <div class="utility-links">
+            <a href="./about.html">About</a>
+            <a href="./contact.html">Contact</a>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <article class="gallery-page" aria-label="Hypnopompic Hallucinations">
+          <div class="gallery-frame">
+            <div class="gallery-image-wrap">
+              <img class="artwork-image" src="./public/images/hypnopompic-hallucinations/01.svg" alt="Hypnopompic Hallucinations 01" />
+              <button class="gallery-image-hit gallery-image-hit--previous" type="button" aria-label="Previous image"></button>
+              <button class="gallery-image-hit gallery-image-hit--next" type="button" aria-label="Next image"></button>
+            </div>
+            <div class="gallery-controls">
+              <button class="gallery-control gallery-control--previous" type="button" aria-label="Previous image">&lt;</button>
+              <button class="gallery-control gallery-control--next" type="button" aria-label="Next image">&gt;</button>
+            </div>
+            <section class="gallery-text" aria-label="Hypnopompic Hallucinations text">
+              <h1>Hypnopompic Hallucinations</h1>
+              <p>This is placeholder text for the project. It may be replaced with an artist statement, exhibition note, or short description of the work when the final writing is ready.</p>
+              <h1>入眠時幻覚</h1>
+              <p>これはプロジェクトの仮テキストです。最終的な文章が決まり次第、作品解説や展示ノート、短いステートメントに差し替えることができます。</p>
+            </section>
+          </div>
+        </article>
+      </main>
+    </div>
+
+    <script>
+      const images = Array.from({ length: 20 }, (_, index) => {
+        const number = String(index + 1).padStart(2, '0');
+        return {
+          src: `./public/images/hypnopompic-hallucinations/${number}.svg`,
+          alt: `Hypnopompic Hallucinations ${number}`,
+        };
+      });
+
+      let currentIndex = 0;
+      const image = document.querySelector('.gallery-frame img');
+      const previous = document.querySelector('.gallery-control--previous');
+      const next = document.querySelector('.gallery-control--next');
+      const imagePrevious = document.querySelector('.gallery-image-hit--previous');
+      const imageNext = document.querySelector('.gallery-image-hit--next');
+
+      function showImage(index) {
+        currentIndex = (index + images.length) % images.length;
+        image.src = images[currentIndex].src;
+        image.alt = images[currentIndex].alt;
+      }
+
+      previous.addEventListener('click', () => showImage(currentIndex - 1));
+      next.addEventListener('click', () => showImage(currentIndex + 1));
+      imagePrevious.addEventListener('click', () => showImage(currentIndex - 1));
+      imageNext.addEventListener('click', () => showImage(currentIndex + 1));
+    </script>
+  </body>
+</html>

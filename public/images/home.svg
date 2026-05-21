@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="533" viewBox="0 0 800 533" role="img" aria-labelledby="title desc">
+  <title id="title">Homepage placeholder image</title>
+  <desc id="desc">A quiet neutral placeholder for the homepage artwork.</desc>
+  <rect width="800" height="533" fill="#e6e8eb"/>
+  <path d="M0 375c92-42 153-52 244-21 78 27 143 22 222-14 93-42 180-31 334 35v158H0z" fill="#cfd5d8"/>
+  <path d="M0 320c118-58 202-71 302-38 63 21 116 16 181-18 96-50 196-35 317 34v98c-101-52-201-66-302-19-85 40-167 45-247 17-79-28-155-17-251 33z" fill="#8fa293"/>
+  <path d="M0 430h800v103H0z" fill="#d5cabb"/>
+</svg>

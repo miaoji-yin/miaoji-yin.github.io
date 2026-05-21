@@ -1,0 +1,340 @@
+@import url("https://fast.fonts.net/cssapi/e5a7edfc-453a-4658-b219-9c1e4c40f48f.css");
+
+:root {
+  --media-width: min(1200px, calc(100vw - 410px));
+  --media-aspect-height: calc(var(--media-width) * 533 / 800);
+  color: #111;
+  background: #fff;
+  font-family: "Adobe Garamond W01", "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+  font-size: 14px;
+  line-height: 1.18;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a[aria-current="page"] {
+  color: #777777;
+  font-style: normal;
+}
+
+.project-links a[aria-current="page"] {
+  font-style: normal;
+}
+
+.utility-links a[aria-current="page"] {
+  font-style: normal;
+}
+
+.site-shell {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  min-height: 100vh;
+  min-width: 1210px;
+  padding: 60px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 220px;
+}
+
+.identity {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 68px;
+  font-style: normal;
+}
+
+.identity:hover,
+.identity[aria-current="page"] {
+  font-style: normal;
+}
+
+.identity__name {
+  font-size: 23px;
+}
+
+.identity__chinese {
+  display: inline-flex;
+  white-space: pre;
+  font-size: 18px;
+  margin-left: 2px;
+}
+
+.identity__chinese-second {
+  margin-left: 3px;
+}
+
+.site-nav,
+.project-links,
+.utility-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.site-nav {
+  font-size: 14px;
+  line-height: 1.7em;
+}
+
+.project-links {
+  max-width: none;
+}
+
+.project-links a:nth-child(6) {
+  margin-top: 1.7em;
+}
+
+.project-links a,
+.utility-links a {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.utility-links {
+  margin-top: 3.4em;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+.content--about {
+  justify-content: flex-start;
+}
+
+.image-page,
+.project-page,
+.gallery-page,
+.text-page {
+  width: 100%;
+}
+
+.image-page {
+  display: flex;
+  justify-content: flex-start;
+  flex: 0 0 var(--media-width);
+  margin-left: 70px;
+}
+
+.artwork-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+}
+
+.image-page .artwork-image {
+  width: var(--media-width);
+  height: auto;
+}
+
+.project-page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.gallery-page {
+  display: flex;
+  justify-content: flex-start;
+  flex: 0 0 var(--media-width);
+  margin-left: 70px;
+}
+
+.gallery-frame {
+  display: flex;
+  flex-direction: column;
+  width: var(--media-width);
+}
+
+.gallery-frame .artwork-image {
+  width: var(--media-width);
+  height: auto;
+}
+
+.gallery-image-wrap {
+  position: relative;
+  width: var(--media-width);
+  height: var(--media-aspect-height);
+}
+
+.gallery-image-hit {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.gallery-image-hit--previous {
+  left: 0;
+}
+
+.gallery-image-hit--next {
+  right: 0;
+}
+
+.gallery-control {
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: 0;
+  color: #777777;
+  background: transparent;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gallery-controls {
+  display: flex;
+  justify-content: space-between;
+  width: var(--media-width);
+  margin-top: 6px;
+}
+
+.gallery-control--previous {
+  text-align: left;
+}
+
+.gallery-control--next {
+  text-align: right;
+}
+
+.gallery-text {
+  width: var(--media-width);
+  margin-top: 3.4em;
+  font-size: 14px;
+  line-height: 1.7em;
+}
+
+.gallery-text h1 {
+  margin: 0 0 1.7em;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.gallery-text p {
+  margin: 0;
+}
+
+.gallery-text p + h1 {
+  margin-top: 3.4em;
+}
+
+.about-page {
+  width: 800px;
+  flex: 0 0 800px;
+  margin-left: 70px;
+  font-size: 14px;
+  line-height: 1.7em;
+}
+
+.contact-page {
+  width: 800px;
+  flex: 0 0 800px;
+  margin-left: 70px;
+  font-size: 14px;
+  line-height: 1.7em;
+}
+
+.about-block + .about-block {
+  margin-top: 3.4em;
+}
+
+.about-page h1 {
+  margin: 0 0 1.7em;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.about-page p {
+  margin: 0;
+}
+
+.contact-page p {
+  margin: 0;
+}
+
+.page-text,
+.text-page {
+  max-width: 560px;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+p {
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  :root {
+    font-size: 13px;
+  }
+
+  .site-shell {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    min-height: auto;
+    padding: 32px 28px 40px;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .identity {
+    margin-bottom: 44px;
+  }
+
+  .site-nav {
+    min-height: 0;
+    gap: 36px;
+  }
+
+  .project-links {
+    max-width: 100%;
+  }
+
+}
