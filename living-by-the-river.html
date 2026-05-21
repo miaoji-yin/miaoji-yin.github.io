@@ -26,6 +26,33 @@
         max-width: none;
         max-height: none;
       }
+
+      .image-cursor {
+        position: fixed;
+        z-index: 20;
+        display: none;
+        color: #000000;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 1;
+        pointer-events: none;
+        text-shadow:
+          0 1px 0 #ffffff,
+          1px 0 0 #ffffff,
+          0 -1px 0 #ffffff,
+          -1px 0 0 #ffffff;
+        transform: translate(-50%, -50%);
+      }
+
+      .gallery-image-wrap:hover .image-cursor {
+        display: block;
+      }
+
+      .gallery-page--living .gallery-image-wrap,
+      .gallery-page--living .gallery-image-hit {
+        cursor: none;
+      }
     </style>
   </head>
   <body>
@@ -60,6 +87,7 @@
               <img class="artwork-image" src="./public/images/living-by-the-river/01.jpg" alt="Living by the river 01" />
               <button class="gallery-image-hit gallery-image-hit--previous" type="button" aria-label="Previous image"></button>
               <button class="gallery-image-hit gallery-image-hit--next" type="button" aria-label="Next image"></button>
+              <span class="image-cursor" aria-hidden="true">→</span>
             </div>
             <div class="gallery-controls">
               <button class="gallery-control gallery-control--previous" type="button" aria-label="Previous image">&lt;</button>
@@ -85,11 +113,16 @@
       const next = document.querySelector('.gallery-control--next');
       const imagePrevious = document.querySelector('.gallery-image-hit--previous');
       const imageNext = document.querySelector('.gallery-image-hit--next');
+      const imageCursor = document.querySelector('.image-cursor');
+      const imageWrap = document.querySelector('.gallery-image-wrap');
 
       function showImage(index) {
         currentIndex = (index + images.length) % images.length;
-        image.src = images[currentIndex].src;
-        image.alt = images[currentIndex].alt;
+        image.classList.add('is-fading');
+        window.setTimeout(() => {
+          image.src = images[currentIndex].src;
+          image.alt = images[currentIndex].alt;
+        }, 360);
       }
 
       function updateFrameSize() {
@@ -109,7 +142,17 @@
       next.addEventListener('click', () => showImage(currentIndex + 1));
       imagePrevious.addEventListener('click', () => showImage(currentIndex - 1));
       imageNext.addEventListener('click', () => showImage(currentIndex + 1));
-      image.addEventListener('load', updateFrameSize);
+      imageWrap.addEventListener('mousemove', (event) => {
+        const rect = imageWrap.getBoundingClientRect();
+        const isPreviousSide = event.clientX < rect.left + rect.width / 2;
+        imageCursor.textContent = isPreviousSide ? '←' : '→';
+        imageCursor.style.left = `${event.clientX}px`;
+        imageCursor.style.top = `${event.clientY}px`;
+      });
+      image.addEventListener('load', () => {
+        updateFrameSize();
+        window.requestAnimationFrame(() => image.classList.remove('is-fading'));
+      });
       if (image.complete) updateFrameSize();
     </script>
   </body>

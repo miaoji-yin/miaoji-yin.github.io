@@ -8,7 +8,7 @@ export default function WindOfOkhotsk() {
   return (
     <GalleryProjectPage
       title={title}
-      images={createGalleryImages(slug, title)}
+      images={createGalleryImages(slug, title, { count: 15, extension: 'jpg' })}
       text={createProjectText(title, 'オホーツクの風')}
     />
   );

@@ -5,8 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wind of Okhotsk - YIN Ying</title>
     <link rel="stylesheet" href="./src/styles.css" />
+    <style>
+      .wind-grid-page {
+        flex: 1 1 auto;
+        width: 100%;
+        margin-left: 0;
+        justify-content: center;
+      }
+
+      .wind-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        width: min(1200px, calc(100vw - 410px));
+      }
+
+      .wind-grid img {
+        display: block;
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+      }
+
+      .back-to-top {
+        position: fixed;
+        left: 60px;
+        bottom: 60px;
+        z-index: 10;
+        display: block;
+        height: 14px;
+        color: #000000;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.7em;
+        text-decoration: none;
+      }
+
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.78);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 420ms ease;
+      }
+
+      .lightbox.is-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .lightbox img {
+        display: block;
+        max-width: min(90vw, 1000px);
+        max-height: min(90vh, 1000px);
+        width: auto;
+        height: auto;
+        opacity: 1;
+        transition: opacity 420ms ease;
+      }
+
+      .lightbox img.is-fading {
+        opacity: 0;
+      }
+
+      .lightbox-control {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 101;
+        padding: 0;
+        border: 0;
+        color: #000000;
+        background: transparent;
+        font-family: inherit;
+        font-size: 30px;
+        font-weight: 50;
+        line-height: 1;
+        cursor: pointer;
+        transform: translateY(-50%);
+      }
+
+      .lightbox-control--previous {
+        left: 60px;
+      }
+
+      .lightbox-control--next {
+        right: 60px;
+      }
+    </style>
   </head>
-  <body>
+  <body id="top">
     <div class="site-shell">
       <aside class="sidebar" aria-label="Site navigation">
         <a class="identity" href="./index.html">
@@ -32,54 +126,89 @@
       </aside>
 
       <main class="content">
-        <article class="gallery-page" aria-label="Wind of Okhotsk">
-          <div class="gallery-frame">
-            <div class="gallery-image-wrap">
-              <img class="artwork-image" src="./public/images/wind-of-okhotsk/01.svg" alt="Wind of Okhotsk 01" />
-              <button class="gallery-image-hit gallery-image-hit--previous" type="button" aria-label="Previous image"></button>
-              <button class="gallery-image-hit gallery-image-hit--next" type="button" aria-label="Next image"></button>
-            </div>
-            <div class="gallery-controls">
-              <button class="gallery-control gallery-control--previous" type="button" aria-label="Previous image">&lt;</button>
-              <button class="gallery-control gallery-control--next" type="button" aria-label="Next image">&gt;</button>
-            </div>
-            <section class="gallery-text" aria-label="Wind of Okhotsk text">
-              <h1>Wind of Okhotsk</h1>
-              <p>This is placeholder text for the project. It may be replaced with an artist statement, exhibition note, or short description of the work when the final writing is ready.</p>
-              <h1>オホーツクの風</h1>
-              <p>これはプロジェクトの仮テキストです。最終的な文章が決まり次第、作品解説や展示ノート、短いステートメントに差し替えることができます。</p>
-            </section>
+        <article class="wind-grid-page" aria-label="Wind of Okhotsk">
+          <div class="wind-grid">
+            <img src="./public/images/wind-of-okhotsk/01.jpg?v=20260522" alt="Wind of Okhotsk 01" />
+            <img src="./public/images/wind-of-okhotsk/02.jpg?v=20260522" alt="Wind of Okhotsk 02" />
+            <img src="./public/images/wind-of-okhotsk/03.jpg?v=20260522" alt="Wind of Okhotsk 03" />
+            <img src="./public/images/wind-of-okhotsk/04.jpg?v=20260522" alt="Wind of Okhotsk 04" />
+            <img src="./public/images/wind-of-okhotsk/05.jpg?v=20260522" alt="Wind of Okhotsk 05" />
+            <img src="./public/images/wind-of-okhotsk/06.jpg?v=20260522" alt="Wind of Okhotsk 06" />
+            <img src="./public/images/wind-of-okhotsk/07.jpg?v=20260522" alt="Wind of Okhotsk 07" />
+            <img src="./public/images/wind-of-okhotsk/08.jpg?v=20260522" alt="Wind of Okhotsk 08" />
+            <img src="./public/images/wind-of-okhotsk/09.jpg?v=20260522" alt="Wind of Okhotsk 09" />
+            <img src="./public/images/wind-of-okhotsk/10.jpg?v=20260522" alt="Wind of Okhotsk 10" />
+            <img src="./public/images/wind-of-okhotsk/11.jpg?v=20260522" alt="Wind of Okhotsk 11" />
+            <img src="./public/images/wind-of-okhotsk/12.jpg?v=20260522" alt="Wind of Okhotsk 12" />
+            <img src="./public/images/wind-of-okhotsk/13.jpg?v=20260522" alt="Wind of Okhotsk 13" />
+            <img src="./public/images/wind-of-okhotsk/14.jpg?v=20260522" alt="Wind of Okhotsk 14" />
+            <img src="./public/images/wind-of-okhotsk/15.jpg?v=20260522" alt="Wind of Okhotsk 15" />
           </div>
         </article>
       </main>
     </div>
-
+    <a class="back-to-top" href="#top" aria-label="Back to top">↑</a>
+    <div class="lightbox" aria-modal="true" role="dialog" aria-label="Wind of Okhotsk image viewer">
+      <button class="lightbox-control lightbox-control--previous" type="button" aria-label="Previous image">&lt;</button>
+      <img src="./public/images/wind-of-okhotsk/01.jpg?v=20260522" alt="Wind of Okhotsk 01" />
+      <button class="lightbox-control lightbox-control--next" type="button" aria-label="Next image">&gt;</button>
+    </div>
     <script>
-      const images = Array.from({ length: 20 }, (_, index) => {
-        const number = String(index + 1).padStart(2, '0');
-        return {
-          src: `./public/images/wind-of-okhotsk/${number}.svg`,
-          alt: `Wind of Okhotsk ${number}`,
-        };
-      });
+      const gridImages = Array.from(document.querySelectorAll('.wind-grid img'));
+      const lightbox = document.querySelector('.lightbox');
+      const lightboxImage = lightbox.querySelector('img');
+      const previousButton = document.querySelector('.lightbox-control--previous');
+      const nextButton = document.querySelector('.lightbox-control--next');
+      let currentImageIndex = 0;
 
-      let currentIndex = 0;
-      const image = document.querySelector('.gallery-frame img');
-      const previous = document.querySelector('.gallery-control--previous');
-      const next = document.querySelector('.gallery-control--next');
-      const imagePrevious = document.querySelector('.gallery-image-hit--previous');
-      const imageNext = document.querySelector('.gallery-image-hit--next');
-
-      function showImage(index) {
-        currentIndex = (index + images.length) % images.length;
-        image.src = images[currentIndex].src;
-        image.alt = images[currentIndex].alt;
+      function showLightboxImage(index) {
+        currentImageIndex = (index + gridImages.length) % gridImages.length;
+        const image = gridImages[currentImageIndex];
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
       }
 
-      previous.addEventListener('click', () => showImage(currentIndex - 1));
-      next.addEventListener('click', () => showImage(currentIndex + 1));
-      imagePrevious.addEventListener('click', () => showImage(currentIndex - 1));
-      imageNext.addEventListener('click', () => showImage(currentIndex + 1));
+      function transitionLightboxImage(index) {
+        currentImageIndex = (index + gridImages.length) % gridImages.length;
+        const image = gridImages[currentImageIndex];
+        lightboxImage.classList.add('is-fading');
+        window.setTimeout(() => {
+          lightboxImage.src = image.src;
+          lightboxImage.alt = image.alt;
+        }, 360);
+      }
+
+      function openLightbox(index) {
+        showLightboxImage(index);
+        lightboxImage.classList.add('is-fading');
+        lightbox.classList.add('is-open');
+        window.requestAnimationFrame(() => {
+          lightboxImage.classList.remove('is-fading');
+        });
+      }
+
+      function closeLightbox(event) {
+        if (event.target === lightbox) {
+          lightbox.classList.remove('is-open');
+        }
+      }
+
+      gridImages.forEach((image, index) => {
+        image.addEventListener('click', () => openLightbox(index));
+      });
+
+      previousButton.addEventListener('click', () => transitionLightboxImage(currentImageIndex - 1));
+      nextButton.addEventListener('click', () => transitionLightboxImage(currentImageIndex + 1));
+      lightbox.addEventListener('click', closeLightbox);
+      lightboxImage.addEventListener('load', () => {
+        window.requestAnimationFrame(() => lightboxImage.classList.remove('is-fading'));
+      });
+      document.addEventListener('keydown', (event) => {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (event.key === 'Escape') lightbox.classList.remove('is-open');
+        if (event.key === 'ArrowLeft') transitionLightboxImage(currentImageIndex - 1);
+        if (event.key === 'ArrowRight') transitionLightboxImage(currentImageIndex + 1);
+      });
     </script>
   </body>
 </html>

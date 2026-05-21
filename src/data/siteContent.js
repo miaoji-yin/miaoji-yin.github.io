@@ -31,7 +31,7 @@ export const siteContent = {
     first: '殷     ',
     second: '鶯',
   },
-  homeImage: '/images/home.svg',
+  homeImage: '/images/home.jpg',
   about: 'About text can be added here.',
   contact: 'Contact details can be added here.',
 };

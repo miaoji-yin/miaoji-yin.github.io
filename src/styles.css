@@ -182,6 +182,12 @@ a[aria-current="page"] {
 .gallery-frame .artwork-image {
   width: var(--media-width);
   height: auto;
+  opacity: 1;
+  transition: opacity 420ms ease;
+}
+
+.gallery-frame .artwork-image.is-fading {
+  opacity: 0;
 }
 
 .gallery-image-wrap {
@@ -272,6 +278,26 @@ a[aria-current="page"] {
 }
 
 .gallery-page--living .gallery-frame .artwork-image {
+  width: 650px;
+  height: auto;
+  max-width: none;
+  max-height: none;
+}
+
+.gallery-page--fixed-width {
+  flex: 1 1 auto;
+  width: 100%;
+  justify-content: center;
+  margin-left: 0;
+}
+
+.gallery-page--fixed-width .gallery-frame,
+.gallery-page--fixed-width .gallery-image-wrap,
+.gallery-page--fixed-width .gallery-controls {
+  width: auto;
+}
+
+.gallery-page--fixed-width .gallery-frame .artwork-image {
   width: 650px;
   height: auto;
   max-width: none;
