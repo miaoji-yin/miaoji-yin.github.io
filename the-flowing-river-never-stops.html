@@ -5,6 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The flowing river never stops - YIN Ying</title>
     <link rel="stylesheet" href="./src/styles.css" />
+    <style>
+      .gallery-page {
+        flex: 1 1 auto;
+        width: 100%;
+        margin-left: 0;
+        justify-content: flex-start;
+      }
+
+      .gallery-frame,
+      .gallery-image-wrap,
+      .gallery-controls {
+        width: auto;
+      }
+
+      .gallery-frame .artwork-image {
+        width: min(1000px, var(--media-width));
+        height: auto;
+        max-width: none;
+        max-height: none;
+      }
+
+      .gallery-text {
+        width: min(1000px, var(--media-width));
+      }
+
+      .gallery-text h1 + p {
+        margin-top: 0;
+      }
+
+      .gallery-text .japanese-title {
+        font-size: 16px;
+      }
+
+      .image-cursor {
+        position: fixed;
+        z-index: 20;
+        display: none;
+        color: #000000;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 1;
+        pointer-events: none;
+        text-shadow:
+          0 1px 0 #ffffff,
+          1px 0 0 #ffffff,
+          0 -1px 0 #ffffff,
+          -1px 0 0 #ffffff;
+        transform: translate(-50%, -50%);
+      }
+
+      .gallery-image-wrap:hover .image-cursor {
+        display: block;
+      }
+
+      .gallery-image-wrap,
+      .gallery-image-hit {
+        cursor: none;
+      }
+    </style>
   </head>
   <body>
     <div class="site-shell">
@@ -35,9 +95,10 @@
         <article class="gallery-page" aria-label="The flowing river never stops">
           <div class="gallery-frame">
             <div class="gallery-image-wrap">
-              <img class="artwork-image" src="./public/images/the-flowing-river-never-stops/01.svg" alt="The flowing river never stops 01" />
+              <img class="artwork-image" src="./public/images/the-flowing-river-never-stops/01.jpg?v=20260522" alt="The flowing river never stops 01" />
               <button class="gallery-image-hit gallery-image-hit--previous" type="button" aria-label="Previous image"></button>
               <button class="gallery-image-hit gallery-image-hit--next" type="button" aria-label="Next image"></button>
+              <span class="image-cursor" aria-hidden="true">→</span>
             </div>
             <div class="gallery-controls">
               <button class="gallery-control gallery-control--previous" type="button" aria-label="Previous image">&lt;</button>
@@ -45,9 +106,13 @@
             </div>
             <section class="gallery-text" aria-label="The flowing river never stops text">
               <h1>The flowing river never stops</h1>
-              <p>This is placeholder text for the project. It may be replaced with an artist statement, exhibition note, or short description of the work when the final writing is ready.</p>
-              <h1>流れる川は止まらない</h1>
-              <p>これはプロジェクトの仮テキストです。最終的な文章が決まり次第、作品解説や展示ノート、短いステートメントに差し替えることができます。</p>
+              <p class="body-copy-english">The river flows constantly, and time never stops. The flowers will eventually fall and the grass will wither. The sweaty boy graduates, and the seated lover separates. The walking dog's energy wanes, and the singing instrument gathers dust. Unknowingly, we become acquainted with the river, and unknowingly, we leave it. Just as many partings, new flowers bloom and grass grows. New students enroll and make new lovers. A new dog runs around and a new person comes to play a musical instrument. Someday, when we stand in the same dazzling sunlight as that day, the river will not be the same water it was before, but will simply flow.</p>
+              <p class="body-copy-english">I currently live near the Tama River and my photography revolves around life along the river. And 2024 I returned to my hometown in Shanghai to photograph the Suzhou River, which flows near my family home. The Tama River and Suzhou River transcend culture and space, forming one river, intertwining and running through endless time.</p>
+              <p>多摩川的河水奔流不息，时间的脚步也从未停止。我看见花瓣凋零，我看见草木枯萎，挥洒汗水的少年终将毕业，依偎而坐的恋人也形同陌路，小狗在散步中日渐衰老，吵闹的小号躺在盒中蒙上灰尘。不知不觉间来到河边，不知不觉间又与河渐行渐远。只是有多少花落就有多少花开，有多少草枯就有多少草长，总会有新的学生在河边挥汗如雨，也会有新的恋人坐在河畔，还会有新的小狗在新的乐器声中迎风奔跑。与那日相同的阳光刺进双眼，但水终究不再是原来的水，只有多摩川奔流不息。</p>
+              <h1 class="japanese-title">ゆく川の流れは絶えず</h1>
+              <p>川の流れは絶えず、時の歩みは止まらない。いずれ花は散り、草は枯れる。汗まみれの少年は卒業し、等間隔に座る恋人は別れる。散歩する犬は気力が衰え、歌う楽器はほこりをかぶる。気づかないうちに川と親しみ、気づかないうちに川から去っていく。しかし別れの数だけ新しい花が咲き、草が茂る。新しい学生が入学し、恋人を作る。新しい犬が走り回り、楽器を奏でる人がやってくる。</p>
+              <p>いつかあの日と同じ眩しい日差しに立っても、もとの水にあらず、ただ川は流れる。</p>
+              <p>現在多摩川の近くに住んでいて、川沿いの生活を中心に撮影を展開している。そして、今年故郷の上海に戻って、実家の近くを流れている蘇州河の写真を撮影した。多摩川と蘇州河は文化と空間を超えて、1つの川を形成し、絡み合いながら果てのない時を駆け抜ける。</p>
             </section>
           </div>
         </article>
@@ -58,7 +123,7 @@
       const images = Array.from({ length: 20 }, (_, index) => {
         const number = String(index + 1).padStart(2, '0');
         return {
-          src: `./public/images/the-flowing-river-never-stops/${number}.svg`,
+          src: `./public/images/the-flowing-river-never-stops/${number}.jpg?v=20260522`,
           alt: `The flowing river never stops ${number}`,
         };
       });
@@ -69,17 +134,50 @@
       const next = document.querySelector('.gallery-control--next');
       const imagePrevious = document.querySelector('.gallery-image-hit--previous');
       const imageNext = document.querySelector('.gallery-image-hit--next');
+      const imageCursor = document.querySelector('.image-cursor');
+      const imageWrap = document.querySelector('.gallery-image-wrap');
 
       function showImage(index) {
         currentIndex = (index + images.length) % images.length;
-        image.src = images[currentIndex].src;
-        image.alt = images[currentIndex].alt;
+        image.classList.add('is-fading');
+        window.setTimeout(() => {
+          image.src = images[currentIndex].src;
+          image.alt = images[currentIndex].alt;
+        }, 360);
+      }
+
+      function updateFrameSize() {
+        const controls = document.querySelector('.gallery-controls');
+        const text = document.querySelector('.gallery-text');
+        const width = Math.min(1000, Math.max(0, window.innerWidth - 410));
+        const height = Math.round(width * image.naturalHeight / image.naturalWidth);
+
+        image.style.width = `${width}px`;
+        image.style.height = `${height}px`;
+        imageWrap.style.width = `${width}px`;
+        imageWrap.style.height = `${height}px`;
+        controls.style.width = `${width}px`;
+        text.style.width = `${width}px`;
       }
 
       previous.addEventListener('click', () => showImage(currentIndex - 1));
       next.addEventListener('click', () => showImage(currentIndex + 1));
       imagePrevious.addEventListener('click', () => showImage(currentIndex - 1));
       imageNext.addEventListener('click', () => showImage(currentIndex + 1));
+      imageWrap.addEventListener('mousemove', (event) => {
+        const rect = imageWrap.getBoundingClientRect();
+        const isPreviousSide = event.clientX < rect.left + rect.width / 2;
+        imageCursor.textContent = isPreviousSide ? '←' : '→';
+        imageCursor.style.left = `${event.clientX}px`;
+        imageCursor.style.top = `${event.clientY}px`;
+      });
+      image.addEventListener('load', () => {
+        updateFrameSize();
+        window.requestAnimationFrame(() => image.classList.remove('is-fading'));
+      });
+      window.addEventListener('resize', updateFrameSize);
+      if (image.complete) updateFrameSize();
     </script>
+    <div class="site-copyright">Copyright © 2026 Ying Yin</div>
   </body>
 </html>

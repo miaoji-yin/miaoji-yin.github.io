@@ -1,8 +1,15 @@
 @import url("https://fast.fonts.net/cssapi/e5a7edfc-453a-4658-b219-9c1e4c40f48f.css");
+@import url("https://fonts.googleapis.com/css?family=Karla:300,400,500,600&display=swap");
 
 :root {
   --media-width: min(1200px, calc(100vw - 410px));
   --media-aspect-height: calc(var(--media-width) * 533 / 800);
+  --body-copy-font: Karla, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  --body-copy-size: 10.5px;
+  --body-copy-english-size: 12.5px;
+  --body-copy-line-height: 1.55;
+  --body-copy-color: #000000;
+  --body-copy-letter-spacing: 0.02em;
   color: #111;
   background: #fff;
   font-family: "Adobe Garamond W01", "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
@@ -47,14 +54,16 @@ a[aria-current="page"] {
 }
 
 .site-shell {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
+  display: block;
   min-height: 100vh;
   min-width: 1210px;
   padding: 60px;
 }
 
 .sidebar {
+  position: fixed;
+  top: 60px;
+  left: 60px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -121,11 +130,25 @@ a[aria-current="page"] {
   margin-top: 3.4em;
 }
 
+.site-copyright {
+  position: fixed;
+  left: 60px;
+  bottom: 60px;
+  z-index: 10;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 11px;
+  line-height: 1.7em;
+  text-align: left;
+  white-space: nowrap;
+}
+
 .content {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
   min-width: 0;
+  margin-left: 220px;
 }
 
 .content--about {
@@ -141,8 +164,9 @@ a[aria-current="page"] {
 
 .image-page {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  flex: 0 0 var(--media-width);
+  flex: 0 0 min(1000px, var(--media-width));
   margin-left: 70px;
 }
 
@@ -156,7 +180,7 @@ a[aria-current="page"] {
 }
 
 .image-page .artwork-image {
-  width: var(--media-width);
+  width: min(1000px, var(--media-width));
   height: auto;
 }
 
@@ -254,14 +278,29 @@ a[aria-current="page"] {
   margin: 0 0 1.7em;
   font-size: 18px;
   line-height: 1.2;
+  font-family: inherit;
+  font-weight: 400;
 }
 
 .gallery-text p {
   margin: 0;
+  color: var(--body-copy-color);
+  font-family: var(--body-copy-font);
+  font-size: var(--body-copy-size);
+  letter-spacing: var(--body-copy-letter-spacing);
+  line-height: var(--body-copy-line-height);
+}
+
+.body-copy-english {
+  font-size: var(--body-copy-english-size);
+}
+
+.gallery-text p + p {
+  margin-top: 1.55em;
 }
 
 .gallery-text p + h1 {
-  margin-top: 3.4em;
+  margin-top: 3.1em;
 }
 
 .gallery-page--living {
@@ -333,10 +372,20 @@ a[aria-current="page"] {
 
 .about-page p {
   margin: 0;
+  color: var(--body-copy-color);
+  font-family: var(--body-copy-font);
+  font-size: var(--body-copy-size);
+  letter-spacing: var(--body-copy-letter-spacing);
+  line-height: var(--body-copy-line-height);
 }
 
 .contact-page p {
   margin: 0;
+  color: var(--body-copy-color);
+  font-family: var(--body-copy-font);
+  font-size: var(--body-copy-size);
+  letter-spacing: var(--body-copy-letter-spacing);
+  line-height: var(--body-copy-line-height);
 }
 
 .page-text,

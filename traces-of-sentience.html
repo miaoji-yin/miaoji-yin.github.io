@@ -4,7 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Traces of Sentience - YIN Ying</title>
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,400italic,500,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./src/styles.css" />
+    <style>
+      .traces-page {
+        flex: 1 1 auto;
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .traces-inner {
+        width: min(800px, calc(100vw - 410px));
+      }
+
+      .traces-text {
+        display: grid;
+        grid-template-columns: 6fr 5fr;
+        column-gap: 70px;
+        width: 100%;
+        font-size: var(--body-copy-size);
+        line-height: var(--body-copy-line-height);
+      }
+
+      .traces-text-column {
+        min-width: 0;
+      }
+
+      .traces-text h1 {
+        margin: 0 0 1.7em;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.2;
+      }
+
+      .traces-text p {
+        margin: 0;
+        color: var(--body-copy-color);
+        font-family: var(--body-copy-font);
+        font-weight: 400;
+        letter-spacing: var(--body-copy-letter-spacing);
+      }
+
+      .traces-text p + p {
+        margin-top: 1.5em;
+      }
+
+      .traces-images {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        width: 100%;
+        margin-top: 5.1em;
+      }
+
+      .traces-images img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    </style>
   </head>
   <body>
     <div class="site-shell">
@@ -32,54 +90,34 @@
       </aside>
 
       <main class="content">
-        <article class="gallery-page" aria-label="Traces of Sentience">
-          <div class="gallery-frame">
-            <div class="gallery-image-wrap">
-              <img class="artwork-image" src="./public/images/traces-of-sentience/01.svg" alt="Traces of Sentience 01" />
-              <button class="gallery-image-hit gallery-image-hit--previous" type="button" aria-label="Previous image"></button>
-              <button class="gallery-image-hit gallery-image-hit--next" type="button" aria-label="Next image"></button>
-            </div>
-            <div class="gallery-controls">
-              <button class="gallery-control gallery-control--previous" type="button" aria-label="Previous image">&lt;</button>
-              <button class="gallery-control gallery-control--next" type="button" aria-label="Next image">&gt;</button>
-            </div>
-            <section class="gallery-text" aria-label="Traces of Sentience text">
-              <h1>Traces of Sentience</h1>
-              <p>This is placeholder text for the project. It may be replaced with an artist statement, exhibition note, or short description of the work when the final writing is ready.</p>
-              <h1>感覚の痕跡</h1>
-              <p>これはプロジェクトの仮テキストです。最終的な文章が決まり次第、作品解説や展示ノート、短いステートメントに差し替えることができます。</p>
+        <article class="traces-page" aria-label="Traces of Sentience">
+          <div class="traces-inner">
+            <section class="traces-text" aria-label="Traces of Sentience text">
+              <div class="traces-text-column">
+                <h1>Traces of Sentience</h1>
+                <p class="body-copy-english">Some old and handmade objects may look ordinary, but when I hold them in my hands, they suddenly bring back fragments of the past. It could be a scene, a feeling, or just a familiar yet indescribable emotion. In that moment, they are no longer just objects, but something that seems to carry its own memories to meet mine. This book records my encounters with these objects — the feelings they evoke and the quiet resonance that forms between us.</p>
+                <p>有些旧物和手工制作的东西，看起来普通，但拿在手里的时候，会让人突然想起一些过去的片段。可能是一个场景、一种感觉，甚至只是某种熟悉却说不清的情绪。那一刻，它们不再只是物品，而像是带着自己的记忆来和我相遇。</p>
+                <p>这本书记录的是我遇见这些物品的经历，是它们唤起的感受和我与它们产生的那种静静的共鸣。</p>
+              </div>
+              <div class="traces-text-column">
+                <h1 aria-hidden="true">&nbsp;</h1>
+                <p>古い物や人の手によるものは、一見するとごく普通に見えるが、手に取った瞬間、ふと過去の断片がよみがえることがあります。それは具体的なシーンかもしれないし、感覚や、言葉にできないどこか懐かしい気持ちかもしれません。その瞬間、それらはただの物ではなく、自分自身の記憶を携えて私と出会っているように感じられます。</p>
+                <p>このジンは、そうした物たちと私が出会った経験を記録したものです。物が呼び起こす感覚と、私とのあいだに生まれる静かな共鳴について綴っています。</p>
+              </div>
             </section>
+
+            <div class="traces-images" aria-label="Traces of Sentience images">
+              <img src="./public/images/traces-of-sentience/01.jpg?v=20260522" alt="Traces of Sentience 01" />
+              <img src="./public/images/traces-of-sentience/02.jpg?v=20260522" alt="Traces of Sentience 02" />
+              <img src="./public/images/traces-of-sentience/03.jpg?v=20260522" alt="Traces of Sentience 03" />
+              <img src="./public/images/traces-of-sentience/04.jpg?v=20260522" alt="Traces of Sentience 04" />
+              <img src="./public/images/traces-of-sentience/05.jpg?v=20260522" alt="Traces of Sentience 05" />
+              <img src="./public/images/traces-of-sentience/06.jpg?v=20260522" alt="Traces of Sentience 06" />
+            </div>
           </div>
         </article>
       </main>
     </div>
-
-    <script>
-      const images = Array.from({ length: 20 }, (_, index) => {
-        const number = String(index + 1).padStart(2, '0');
-        return {
-          src: `./public/images/traces-of-sentience/${number}.svg`,
-          alt: `Traces of Sentience ${number}`,
-        };
-      });
-
-      let currentIndex = 0;
-      const image = document.querySelector('.gallery-frame img');
-      const previous = document.querySelector('.gallery-control--previous');
-      const next = document.querySelector('.gallery-control--next');
-      const imagePrevious = document.querySelector('.gallery-image-hit--previous');
-      const imageNext = document.querySelector('.gallery-image-hit--next');
-
-      function showImage(index) {
-        currentIndex = (index + images.length) % images.length;
-        image.src = images[currentIndex].src;
-        image.alt = images[currentIndex].alt;
-      }
-
-      previous.addEventListener('click', () => showImage(currentIndex - 1));
-      next.addEventListener('click', () => showImage(currentIndex + 1));
-      imagePrevious.addEventListener('click', () => showImage(currentIndex - 1));
-      imageNext.addEventListener('click', () => showImage(currentIndex + 1));
-    </script>
+    <div class="site-copyright">Copyright © 2026 Ying Yin</div>
   </body>
 </html>

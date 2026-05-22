@@ -5,6 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>American Dream Park - YIN Ying</title>
     <link rel="stylesheet" href="./src/styles.css" />
+    <style>
+      .gallery-page {
+        flex: 1 1 auto;
+        width: 100%;
+        margin-left: 0;
+        justify-content: flex-start;
+      }
+
+      .gallery-frame,
+      .gallery-image-wrap,
+      .gallery-controls {
+        width: auto;
+      }
+
+      .gallery-frame .artwork-image {
+        width: min(1000px, var(--media-width));
+        height: auto;
+        max-width: none;
+        max-height: none;
+      }
+
+      .image-cursor {
+        position: fixed;
+        z-index: 20;
+        display: none;
+        color: #000000;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 1;
+        pointer-events: none;
+        text-shadow:
+          0 1px 0 #ffffff,
+          1px 0 0 #ffffff,
+          0 -1px 0 #ffffff,
+          -1px 0 0 #ffffff;
+        transform: translate(-50%, -50%);
+      }
+
+      .gallery-image-wrap:hover .image-cursor {
+        display: block;
+      }
+
+      .gallery-image-wrap,
+      .gallery-image-hit {
+        cursor: none;
+      }
+    </style>
   </head>
   <body>
     <div class="site-shell">
@@ -35,30 +83,25 @@
         <article class="gallery-page" aria-label="American Dream Park">
           <div class="gallery-frame">
             <div class="gallery-image-wrap">
-              <img class="artwork-image" src="./public/images/american-dream-park/01.svg" alt="American Dream Park 01" />
+              <img class="artwork-image" src="./public/images/american-dream-park/01.jpg?v=20260522" alt="American Dream Park 01" />
               <button class="gallery-image-hit gallery-image-hit--previous" type="button" aria-label="Previous image"></button>
               <button class="gallery-image-hit gallery-image-hit--next" type="button" aria-label="Next image"></button>
+              <span class="image-cursor" aria-hidden="true">→</span>
             </div>
             <div class="gallery-controls">
               <button class="gallery-control gallery-control--previous" type="button" aria-label="Previous image">&lt;</button>
               <button class="gallery-control gallery-control--next" type="button" aria-label="Next image">&gt;</button>
             </div>
-            <section class="gallery-text" aria-label="American Dream Park text">
-              <h1>American Dream Park</h1>
-              <p>This is placeholder text for the project. It may be replaced with an artist statement, exhibition note, or short description of the work when the final writing is ready.</p>
-              <h1>アメリカン・ドリーム・パーク</h1>
-              <p>これはプロジェクトの仮テキストです。最終的な文章が決まり次第、作品解説や展示ノート、短いステートメントに差し替えることができます。</p>
-            </section>
           </div>
         </article>
       </main>
     </div>
 
     <script>
-      const images = Array.from({ length: 20 }, (_, index) => {
+      const images = Array.from({ length: 15 }, (_, index) => {
         const number = String(index + 1).padStart(2, '0');
         return {
-          src: `./public/images/american-dream-park/${number}.svg`,
+          src: `./public/images/american-dream-park/${number}.jpg?v=20260522`,
           alt: `American Dream Park ${number}`,
         };
       });
@@ -69,17 +112,48 @@
       const next = document.querySelector('.gallery-control--next');
       const imagePrevious = document.querySelector('.gallery-image-hit--previous');
       const imageNext = document.querySelector('.gallery-image-hit--next');
+      const imageCursor = document.querySelector('.image-cursor');
+      const imageWrap = document.querySelector('.gallery-image-wrap');
 
       function showImage(index) {
         currentIndex = (index + images.length) % images.length;
-        image.src = images[currentIndex].src;
-        image.alt = images[currentIndex].alt;
+        image.classList.add('is-fading');
+        window.setTimeout(() => {
+          image.src = images[currentIndex].src;
+          image.alt = images[currentIndex].alt;
+        }, 360);
+      }
+
+      function updateFrameSize() {
+        const controls = document.querySelector('.gallery-controls');
+        const width = Math.min(1000, Math.max(0, window.innerWidth - 410));
+        const height = Math.round(width * image.naturalHeight / image.naturalWidth);
+
+        image.style.width = `${width}px`;
+        image.style.height = `${height}px`;
+        imageWrap.style.width = `${width}px`;
+        imageWrap.style.height = `${height}px`;
+        controls.style.width = `${width}px`;
       }
 
       previous.addEventListener('click', () => showImage(currentIndex - 1));
       next.addEventListener('click', () => showImage(currentIndex + 1));
       imagePrevious.addEventListener('click', () => showImage(currentIndex - 1));
       imageNext.addEventListener('click', () => showImage(currentIndex + 1));
+      imageWrap.addEventListener('mousemove', (event) => {
+        const rect = imageWrap.getBoundingClientRect();
+        const isPreviousSide = event.clientX < rect.left + rect.width / 2;
+        imageCursor.textContent = isPreviousSide ? '←' : '→';
+        imageCursor.style.left = `${event.clientX}px`;
+        imageCursor.style.top = `${event.clientY}px`;
+      });
+      image.addEventListener('load', () => {
+        updateFrameSize();
+        window.requestAnimationFrame(() => image.classList.remove('is-fading'));
+      });
+      window.addEventListener('resize', updateFrameSize);
+      if (image.complete) updateFrameSize();
     </script>
+    <div class="site-copyright">Copyright © 2026 Ying Yin</div>
   </body>
 </html>

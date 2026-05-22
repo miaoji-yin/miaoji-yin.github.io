@@ -4,7 +4,127 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hypnopompic Hallucinations - YIN Ying</title>
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,400italic,500,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./src/styles.css" />
+    <style>
+      .hypnopompic-page {
+        flex: 1 1 auto;
+        width: 100%;
+        margin-left: 0;
+        justify-content: center;
+      }
+
+      .hypnopompic-inner {
+        width: min(1200px, calc(100vw - 410px));
+      }
+
+      .hypnopompic-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .hypnopompic-grid img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        height: calc(((min(1200px, calc(100vw - 410px)) - 36px) / 3) * 3 / 4);
+        object-fit: cover;
+        cursor: pointer;
+      }
+
+      .hypnopompic-page .gallery-text {
+        display: grid;
+        grid-template-columns: 6fr 5fr;
+        column-gap: 70px;
+        width: 100%;
+        margin-top: 5.1em;
+        font-size: var(--body-copy-size);
+        line-height: var(--body-copy-line-height);
+      }
+
+      .hypnopompic-text-column {
+        min-width: 0;
+      }
+
+      .hypnopompic-page .gallery-text h1 {
+        margin: 0 0 1.7em;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.2;
+      }
+
+      .hypnopompic-page .gallery-text p + h1 {
+        margin-top: 3.4em;
+      }
+
+      .hypnopompic-page .gallery-text p {
+        color: var(--body-copy-color);
+        font-family: var(--body-copy-font);
+        font-weight: 400;
+        letter-spacing: var(--body-copy-letter-spacing);
+      }
+
+      .hypnopompic-page .gallery-text p + p {
+        margin-top: 1.5em;
+      }
+
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.78);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 420ms ease;
+      }
+
+      .lightbox.is-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .lightbox img {
+        display: block;
+        max-width: min(90vw, 1000px);
+        max-height: min(90vh, 1000px);
+        width: auto;
+        height: auto;
+        opacity: 1;
+        transition: opacity 420ms ease;
+      }
+
+      .lightbox img.is-fading {
+        opacity: 0;
+      }
+
+      .lightbox-control {
+        position: fixed;
+        top: 50%;
+        z-index: 101;
+        padding: 0;
+        border: 0;
+        color: #000000;
+        background: transparent;
+        font-family: inherit;
+        font-size: 30px;
+        font-weight: 50;
+        line-height: 1;
+        cursor: pointer;
+        transform: translateY(-50%);
+      }
+
+      .lightbox-control--previous {
+        left: 60px;
+      }
+
+      .lightbox-control--next {
+        right: 60px;
+      }
+    </style>
   </head>
   <body>
     <div class="site-shell">
@@ -32,54 +152,121 @@
       </aside>
 
       <main class="content">
-        <article class="gallery-page" aria-label="Hypnopompic Hallucinations">
-          <div class="gallery-frame">
-            <div class="gallery-image-wrap">
-              <img class="artwork-image" src="./public/images/hypnopompic-hallucinations/01.svg" alt="Hypnopompic Hallucinations 01" />
-              <button class="gallery-image-hit gallery-image-hit--previous" type="button" aria-label="Previous image"></button>
-              <button class="gallery-image-hit gallery-image-hit--next" type="button" aria-label="Next image"></button>
-            </div>
-            <div class="gallery-controls">
-              <button class="gallery-control gallery-control--previous" type="button" aria-label="Previous image">&lt;</button>
-              <button class="gallery-control gallery-control--next" type="button" aria-label="Next image">&gt;</button>
+        <article class="hypnopompic-page" aria-label="Hypnopompic Hallucinations">
+          <div class="hypnopompic-inner">
+            <div class="hypnopompic-grid">
+              <img src="./public/images/hypnopompic-hallucinations/01.jpg?v=20260522" alt="Hypnopompic Hallucinations 01" />
+              <img src="./public/images/hypnopompic-hallucinations/02.jpg?v=20260522" alt="Hypnopompic Hallucinations 02" />
+              <img src="./public/images/hypnopompic-hallucinations/03.jpg?v=20260522" alt="Hypnopompic Hallucinations 03" />
+              <img src="./public/images/hypnopompic-hallucinations/04.jpg?v=20260522" alt="Hypnopompic Hallucinations 04" />
+              <img src="./public/images/hypnopompic-hallucinations/05.jpg?v=20260522" alt="Hypnopompic Hallucinations 05" />
+              <img src="./public/images/hypnopompic-hallucinations/06.jpg?v=20260522" alt="Hypnopompic Hallucinations 06" />
+              <img src="./public/images/hypnopompic-hallucinations/07.jpg?v=20260522" alt="Hypnopompic Hallucinations 07" />
+              <img src="./public/images/hypnopompic-hallucinations/08.jpg?v=20260522" alt="Hypnopompic Hallucinations 08" />
+              <img src="./public/images/hypnopompic-hallucinations/09.jpg?v=20260522" alt="Hypnopompic Hallucinations 09" />
+              <img src="./public/images/hypnopompic-hallucinations/10.jpg?v=20260522" alt="Hypnopompic Hallucinations 10" />
+              <img src="./public/images/hypnopompic-hallucinations/11.jpg?v=20260522" alt="Hypnopompic Hallucinations 11" />
+              <img src="./public/images/hypnopompic-hallucinations/12.jpg?v=20260522" alt="Hypnopompic Hallucinations 12" />
+              <img src="./public/images/hypnopompic-hallucinations/13.jpg?v=20260522" alt="Hypnopompic Hallucinations 13" />
+              <img src="./public/images/hypnopompic-hallucinations/14.jpg?v=20260522" alt="Hypnopompic Hallucinations 14" />
+              <img src="./public/images/hypnopompic-hallucinations/15.jpg?v=20260522" alt="Hypnopompic Hallucinations 15" />
+              <img src="./public/images/hypnopompic-hallucinations/16.jpg?v=20260522" alt="Hypnopompic Hallucinations 16" />
+              <img src="./public/images/hypnopompic-hallucinations/17.jpg?v=20260522" alt="Hypnopompic Hallucinations 17" />
+              <img src="./public/images/hypnopompic-hallucinations/18.jpg?v=20260522" alt="Hypnopompic Hallucinations 18" />
+              <img src="./public/images/hypnopompic-hallucinations/19.jpg?v=20260522" alt="Hypnopompic Hallucinations 19" />
+              <img src="./public/images/hypnopompic-hallucinations/20.jpg?v=20260522" alt="Hypnopompic Hallucinations 20" />
+              <img src="./public/images/hypnopompic-hallucinations/21.jpg?v=20260522" alt="Hypnopompic Hallucinations 21" />
+              <img src="./public/images/hypnopompic-hallucinations/22.jpg?v=20260522" alt="Hypnopompic Hallucinations 22" />
+              <img src="./public/images/hypnopompic-hallucinations/23.jpg?v=20260522" alt="Hypnopompic Hallucinations 23" />
+              <img src="./public/images/hypnopompic-hallucinations/24.jpg?v=20260522" alt="Hypnopompic Hallucinations 24" />
+              <img src="./public/images/hypnopompic-hallucinations/25.jpg?v=20260522" alt="Hypnopompic Hallucinations 25" />
+              <img src="./public/images/hypnopompic-hallucinations/26.jpg?v=20260522" alt="Hypnopompic Hallucinations 26" />
             </div>
             <section class="gallery-text" aria-label="Hypnopompic Hallucinations text">
-              <h1>Hypnopompic Hallucinations</h1>
-              <p>This is placeholder text for the project. It may be replaced with an artist statement, exhibition note, or short description of the work when the final writing is ready.</p>
-              <h1>入眠時幻覚</h1>
-              <p>これはプロジェクトの仮テキストです。最終的な文章が決まり次第、作品解説や展示ノート、短いステートメントに差し替えることができます。</p>
+              <div class="hypnopompic-text-column">
+                <h1>Hypnopompic Hallucinations</h1>
+                <p class="body-copy-english">I remember well the dream I had just before I woke up, but as soon as I wake up, the self I was living in the dream turns into the protagonist of the story of the dream.</p>
+                <p class="body-copy-english">However, until then, there is a slight moment when the dream self and the real self are alive at the same time. The consciousness of the two selves, diving between darkness and light, push together to create a tangential plane, where the dream world and the real world are projected onto a vague, fragmented image. Hypnopompic hallucinations arise from this as an intersection between dream and reality.</p>
+                <p class="body-copy-english">By turning my camera on these illusions and overlaying Hypnopompic Hallucinations in the interstice between the box of darkness and the light through the lens, I attempt to reconstruct the higher structure of dream and reality, and pursue my true self wandering in a world divided by materialisation.</p>
+                <p>Hypnopompic Hallucinations意为醒前幻觉。</p>
+                <p>我总是能清楚地记得睡醒之前做的梦。而在醒来的瞬间，梦中的我就变成了梦中故事里的主角。</p>
+                <p>梦中的自己和现实中的自己有那么一瞬间是同时存在的。两个自我的意识在黑暗与光明之间潜行，共同创造了一个切面，在这个切面上，梦境和现实世界投射到一个模糊、支离破碎的图像上。作为梦境与现实的交汇点，醒前幻觉由此产生。</p>
+                <p>我将镜头对准这些幻觉，在黑暗的盒子与镜头中的光线之间的夹缝中叠加醒前幻觉，试图重建梦境与现实的高级结构，追寻徘徊在被物化分割的世界中的真实自我。</p>
+              </div>
+              <div class="hypnopompic-text-column">
+                <h1>夢現</h1>
+                <p>私は目覚める直前に見た夢をよく覚えています。子供の時に暮らしていた家を新たに購入しようとしたり、迷路に変わった親の勤めている大学に迷い込んだり、その多くは予想外の出来事が記憶に侵入したものです。これらの夢は現実世界に基づいているものの、実際の世界とは異なり、不思議なシーンとして現れます。</p>
+                <p>私が旅の経験を振り返る時、記憶は夢のように思い出されます。誰に会った、どこに訪れたといった出来事は、ほとんど曖昧で断片的なイメージになります。</p>
+                <p>見知らぬ場所へ行って新たな生活を体験するために旅に出ますが、私にとって出会った風景は半分見慣れたもので、常にそこに自分自身の日常が重なっています。しかし、その見慣れているようで見慣れない風景の中で、予期しないイメージに遭遇します。こうした関連性と偶然性の組み合わせは夢と似ているように思えます。</p>
+              </div>
             </section>
           </div>
         </article>
       </main>
     </div>
 
+    <div class="lightbox" aria-modal="true" role="dialog" aria-label="Hypnopompic Hallucinations image viewer">
+      <button class="lightbox-control lightbox-control--previous" type="button" aria-label="Previous image">&lt;</button>
+      <img src="./public/images/hypnopompic-hallucinations/01.jpg?v=20260522" alt="Hypnopompic Hallucinations 01" />
+      <button class="lightbox-control lightbox-control--next" type="button" aria-label="Next image">&gt;</button>
+    </div>
     <script>
-      const images = Array.from({ length: 20 }, (_, index) => {
-        const number = String(index + 1).padStart(2, '0');
-        return {
-          src: `./public/images/hypnopompic-hallucinations/${number}.svg`,
-          alt: `Hypnopompic Hallucinations ${number}`,
-        };
-      });
+      const gridImages = Array.from(document.querySelectorAll('.hypnopompic-grid img'));
+      const lightbox = document.querySelector('.lightbox');
+      const lightboxImage = lightbox.querySelector('img');
+      const previousButton = document.querySelector('.lightbox-control--previous');
+      const nextButton = document.querySelector('.lightbox-control--next');
+      let currentImageIndex = 0;
 
-      let currentIndex = 0;
-      const image = document.querySelector('.gallery-frame img');
-      const previous = document.querySelector('.gallery-control--previous');
-      const next = document.querySelector('.gallery-control--next');
-      const imagePrevious = document.querySelector('.gallery-image-hit--previous');
-      const imageNext = document.querySelector('.gallery-image-hit--next');
-
-      function showImage(index) {
-        currentIndex = (index + images.length) % images.length;
-        image.src = images[currentIndex].src;
-        image.alt = images[currentIndex].alt;
+      function showLightboxImage(index) {
+        currentImageIndex = (index + gridImages.length) % gridImages.length;
+        const image = gridImages[currentImageIndex];
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
       }
 
-      previous.addEventListener('click', () => showImage(currentIndex - 1));
-      next.addEventListener('click', () => showImage(currentIndex + 1));
-      imagePrevious.addEventListener('click', () => showImage(currentIndex - 1));
-      imageNext.addEventListener('click', () => showImage(currentIndex + 1));
+      function transitionLightboxImage(index) {
+        currentImageIndex = (index + gridImages.length) % gridImages.length;
+        const image = gridImages[currentImageIndex];
+        lightboxImage.classList.add('is-fading');
+        window.setTimeout(() => {
+          lightboxImage.src = image.src;
+          lightboxImage.alt = image.alt;
+        }, 360);
+      }
+
+      function openLightbox(index) {
+        showLightboxImage(index);
+        lightboxImage.classList.add('is-fading');
+        lightbox.classList.add('is-open');
+        window.requestAnimationFrame(() => {
+          lightboxImage.classList.remove('is-fading');
+        });
+      }
+
+      function closeLightbox(event) {
+        if (event.target === lightbox) {
+          lightbox.classList.remove('is-open');
+        }
+      }
+
+      gridImages.forEach((image, index) => {
+        image.addEventListener('click', () => openLightbox(index));
+      });
+
+      previousButton.addEventListener('click', () => transitionLightboxImage(currentImageIndex - 1));
+      nextButton.addEventListener('click', () => transitionLightboxImage(currentImageIndex + 1));
+      lightbox.addEventListener('click', closeLightbox);
+      lightboxImage.addEventListener('load', () => {
+        window.requestAnimationFrame(() => lightboxImage.classList.remove('is-fading'));
+      });
+      document.addEventListener('keydown', (event) => {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (event.key === 'Escape') lightbox.classList.remove('is-open');
+        if (event.key === 'ArrowLeft') transitionLightboxImage(currentImageIndex - 1);
+        if (event.key === 'ArrowRight') transitionLightboxImage(currentImageIndex + 1);
+      });
     </script>
+    <div class="site-copyright">Copyright © 2026 Ying Yin</div>
   </body>
 </html>

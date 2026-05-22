@@ -27,21 +27,6 @@
         cursor: pointer;
       }
 
-      .back-to-top {
-        position: fixed;
-        left: 60px;
-        bottom: 60px;
-        z-index: 10;
-        display: block;
-        height: 14px;
-        color: #000000;
-        font-family: inherit;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 1.7em;
-        text-decoration: none;
-      }
-
       .lightbox {
         position: fixed;
         inset: 0;
@@ -147,7 +132,6 @@
         </article>
       </main>
     </div>
-    <a class="back-to-top" href="#top" aria-label="Back to top">↑</a>
     <div class="lightbox" aria-modal="true" role="dialog" aria-label="Wind of Okhotsk image viewer">
       <button class="lightbox-control lightbox-control--previous" type="button" aria-label="Previous image">&lt;</button>
       <img src="./public/images/wind-of-okhotsk/01.jpg?v=20260522" alt="Wind of Okhotsk 01" />
@@ -210,5 +194,6 @@
         if (event.key === 'ArrowRight') transitionLightboxImage(currentImageIndex + 1);
       });
     </script>
+    <div class="site-copyright">Copyright © 2026 Ying Yin</div>
   </body>
 </html>
