@@ -133,7 +133,7 @@ a[aria-current="page"] {
 .site-copyright {
   position: fixed;
   left: 60px;
-  bottom: 60px;
+  bottom: 20px;
   z-index: 10;
   color: rgba(0, 0, 0, 0.3);
   font-size: 11px;
@@ -306,7 +306,7 @@ a[aria-current="page"] {
 .gallery-page--living {
   flex: 1 1 auto;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
   margin-left: 0;
 }
 

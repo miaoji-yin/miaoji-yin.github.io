@@ -9,16 +9,13 @@
       .image-page {
         flex: 1 1 auto;
         width: 100%;
-        min-height: calc(100vh - 120px);
         margin-left: 0;
-        justify-content: flex-end;
+        justify-content: flex-start;
       }
 
       .image-page .artwork-image {
-        width: auto;
+        width: min(1000px, var(--media-width));
         height: auto;
-        max-width: 1000px;
-        max-height: calc(100vh - 120px);
       }
     </style>
   </head>
