@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The flowing river never stops - YIN Ying</title>
-    <link rel="stylesheet" href="./src/styles.css" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260524-responsive" />
     <style>
       .gallery-page {
         flex: 1 1 auto;
@@ -14,28 +14,53 @@
       }
 
       .gallery-frame,
-      .gallery-image-wrap,
-      .gallery-controls {
+      .gallery-image-wrap {
         width: auto;
       }
 
       .gallery-frame .artwork-image {
-        width: min(1000px, var(--media-width));
+        width: auto;
         height: auto;
-        max-width: none;
-        max-height: none;
+        max-width: var(--image-max-width);
+        max-height: var(--image-max-height);
       }
 
       .gallery-text {
+        display: grid;
+        grid-template-columns: 6fr 5fr;
+        column-gap: 70px;
         width: min(1000px, var(--media-width));
+        margin-top: 5.1em;
+      }
+
+      .river-text-column {
+        min-width: 0;
+      }
+
+      .gallery-text h1 {
+        min-height: 26.4px;
+        margin: 0 0 37.4px;
       }
 
       .gallery-text h1 + p {
         margin-top: 0;
       }
 
-      .gallery-text .japanese-title {
-        font-size: 16px;
+      .gallery-text .body-copy-english {
+        font-size: 13.5px;
+        line-height: 1.54;
+      }
+
+      .gallery-text p.body-copy-chinese {
+        font-size: 11.5px;
+        letter-spacing: 0.03em;
+        line-height: 1.56;
+      }
+
+      .gallery-text p.body-copy-japanese {
+        font-size: 11.5px;
+        letter-spacing: 0.02em;
+        line-height: 1.56;
       }
 
       .image-cursor {
@@ -69,24 +94,26 @@
   <body>
     <div class="site-shell">
       <aside class="sidebar" aria-label="Site navigation">
-        <a class="identity" href="./index.html">
+        <a class="identity" href="./">
           <span class="identity__name">YIN Ying</span>
           <span class="identity__chinese"><span>殷     </span><span class="identity__chinese-second">鶯</span></span>
         </a>
 
+        <button class="mobile-menu-toggle" type="button" aria-expanded="false">Menu</button>
+
         <nav class="site-nav">
           <div class="project-links">
-            <a href="./the-flowing-river-never-stops.html" aria-current="page">The flowing river never stops</a>
-            <a href="./living-by-the-river.html">Living by the river</a>
-            <a href="./hypnopompic-hallucinations.html">Hypnopompic Hallucinations</a>
-            <a href="./wind-of-okhotsk.html">Wind of Okhotsk</a>
-            <a href="./american-dream-park.html">American Dream Park</a>
-            <a href="./traces-of-sentience.html">Traces of Sentience</a>
+            <a href="./the-flowing-river-never-stops/" aria-current="page">The flowing river never stops</a>
+            <a href="./living-by-the-river/">Living by the river</a>
+            <a href="./hypnopompic-hallucinations/">Hypnopompic Hallucinations</a>
+            <a href="./wind-of-okhotsk/">Wind of Okhotsk</a>
+            <a href="./american-dream-park/">American Dream Park</a>
+            <a href="./traces-of-sentience/">Traces of Sentience</a>
           </div>
 
           <div class="utility-links">
-            <a href="./about.html">About</a>
-            <a href="./contact.html">Contact</a>
+            <a href="./about/">About</a>
+            <a href="./contact/">Contact</a>
           </div>
         </nav>
       </aside>
@@ -100,19 +127,20 @@
               <button class="gallery-image-hit gallery-image-hit--next" type="button" aria-label="Next image"></button>
               <span class="image-cursor" aria-hidden="true">→</span>
             </div>
-            <div class="gallery-controls">
-              <button class="gallery-control gallery-control--previous" type="button" aria-label="Previous image">&lt;</button>
-              <button class="gallery-control gallery-control--next" type="button" aria-label="Next image">&gt;</button>
-            </div>
+            <div class="mobile-image-list" aria-label="Mobile image list"></div>
             <section class="gallery-text" aria-label="The flowing river never stops text">
-              <h1>The flowing river never stops</h1>
-              <p class="body-copy-english">The river flows constantly, and time never stops. The flowers will eventually fall and the grass will wither. The sweaty boy graduates, and the seated lover separates. The walking dog's energy wanes, and the singing instrument gathers dust. Unknowingly, we become acquainted with the river, and unknowingly, we leave it. Just as many partings, new flowers bloom and grass grows. New students enroll and make new lovers. A new dog runs around and a new person comes to play a musical instrument. Someday, when we stand in the same dazzling sunlight as that day, the river will not be the same water it was before, but will simply flow.</p>
-              <p class="body-copy-english">I currently live near the Tama River and my photography revolves around life along the river. And 2024 I returned to my hometown in Shanghai to photograph the Suzhou River, which flows near my family home. The Tama River and Suzhou River transcend culture and space, forming one river, intertwining and running through endless time.</p>
-              <p>多摩川的河水奔流不息，时间的脚步也从未停止。我看见花瓣凋零，我看见草木枯萎，挥洒汗水的少年终将毕业，依偎而坐的恋人也形同陌路，小狗在散步中日渐衰老，吵闹的小号躺在盒中蒙上灰尘。不知不觉间来到河边，不知不觉间又与河渐行渐远。只是有多少花落就有多少花开，有多少草枯就有多少草长，总会有新的学生在河边挥汗如雨，也会有新的恋人坐在河畔，还会有新的小狗在新的乐器声中迎风奔跑。与那日相同的阳光刺进双眼，但水终究不再是原来的水，只有多摩川奔流不息。</p>
-              <h1 class="japanese-title">ゆく川の流れは絶えず</h1>
-              <p>川の流れは絶えず、時の歩みは止まらない。いずれ花は散り、草は枯れる。汗まみれの少年は卒業し、等間隔に座る恋人は別れる。散歩する犬は気力が衰え、歌う楽器はほこりをかぶる。気づかないうちに川と親しみ、気づかないうちに川から去っていく。しかし別れの数だけ新しい花が咲き、草が茂る。新しい学生が入学し、恋人を作る。新しい犬が走り回り、楽器を奏でる人がやってくる。</p>
-              <p>いつかあの日と同じ眩しい日差しに立っても、もとの水にあらず、ただ川は流れる。</p>
-              <p>現在多摩川の近くに住んでいて、川沿いの生活を中心に撮影を展開している。そして、今年故郷の上海に戻って、実家の近くを流れている蘇州河の写真を撮影した。多摩川と蘇州河は文化と空間を超えて、1つの川を形成し、絡み合いながら果てのない時を駆け抜ける。</p>
+              <div class="river-text-column">
+                <h1 class="english-title english-title--large">The flowing river never stops</h1>
+                <p class="body-copy-english">The river flows constantly, and time never stops. The flowers will eventually fall and the grass will wither. The sweaty boy graduates, and the seated lover separates. The walking dog's energy wanes, and the singing instrument gathers dust. Unknowingly, we become acquainted with the river, and unknowingly, we leave it. Just as many partings, new flowers bloom and grass grows. New students enroll and make new lovers. A new dog runs around and a new person comes to play a musical instrument. Someday, when we stand in the same dazzling sunlight as that day, the river will not be the same water it was before, but will simply flow.</p>
+                <p class="body-copy-english">I currently live near the Tama River and my photography revolves around life along the river. And 2024 I returned to my hometown in Shanghai to photograph the Suzhou River, which flows near my family home. The Tama River and Suzhou River transcend culture and space, forming one river, intertwining and running through endless time.</p>
+                <p class="body-copy-chinese">多摩川的河水奔流不息，时间的脚步也从未停止。我看见花瓣凋零，我看见草木枯萎，挥洒汗水的少年终将毕业，依偎而坐的恋人也形同陌路，小狗在散步中日渐衰老，吵闹的小号躺在盒中蒙上灰尘。不知不觉间来到河边，不知不觉间又与河渐行渐远。只是有多少花落就有多少花开，有多少草枯就有多少草长，总会有新的学生在河边挥汗如雨，也会有新的恋人坐在河畔，还会有新的小狗在新的乐器声中迎风奔跑。与那日相同的阳光刺进双眼，但水终究不再是原来的水，只有多摩川奔流不息。</p>
+              </div>
+              <div class="river-text-column">
+                <h1>ゆく川の流れは絶えず</h1>
+                <p class="body-copy-japanese">川の流れは絶えず、時の歩みは止まらない。いずれ花は散り、草は枯れる。汗まみれの少年は卒業し、等間隔に座る恋人は別れる。散歩する犬は気力が衰え、歌う楽器はほこりをかぶる。気づかないうちに川と親しみ、気づかないうちに川から去っていく。しかし別れの数だけ新しい花が咲き、草が茂る。新しい学生が入学し、恋人を作る。新しい犬が走り回り、楽器を奏でる人がやってくる。</p>
+                <p class="body-copy-japanese">いつかあの日と同じ眩しい日差しに立っても、もとの水にあらず、ただ川は流れる。</p>
+                <p class="body-copy-japanese">現在多摩川の近くに住んでいて、川沿いの生活を中心に撮影を展開している。そして、今年故郷の上海に戻って、実家の近くを流れている蘇州河の写真を撮影した。多摩川と蘇州河は文化と空間を超えて、1つの川を形成し、絡み合いながら果てのない時を駆け抜ける。</p>
+              </div>
             </section>
           </div>
         </article>
@@ -130,12 +158,24 @@
 
       let currentIndex = 0;
       const image = document.querySelector('.gallery-frame img');
-      const previous = document.querySelector('.gallery-control--previous');
-      const next = document.querySelector('.gallery-control--next');
       const imagePrevious = document.querySelector('.gallery-image-hit--previous');
       const imageNext = document.querySelector('.gallery-image-hit--next');
       const imageCursor = document.querySelector('.image-cursor');
       const imageWrap = document.querySelector('.gallery-image-wrap');
+      const mobileImageList = document.querySelector('.mobile-image-list');
+
+      function populateMobileImages() {
+        if (!mobileImageList || mobileImageList.children.length) return;
+        images.forEach((item) => {
+          const mobileImage = document.createElement('img');
+          mobileImage.src = item.src;
+          mobileImage.alt = item.alt;
+          mobileImage.loading = 'lazy';
+          mobileImageList.appendChild(mobileImage);
+        });
+      }
+
+      populateMobileImages();
 
       function showImage(index) {
         currentIndex = (index + images.length) % images.length;
@@ -147,21 +187,20 @@
       }
 
       function updateFrameSize() {
-        const controls = document.querySelector('.gallery-controls');
+        if (!image.naturalWidth || !image.naturalHeight) return;
         const text = document.querySelector('.gallery-text');
-        const width = Math.min(1000, Math.max(0, window.innerWidth - 410));
-        const height = Math.round(width * image.naturalHeight / image.naturalWidth);
+        const availableWidth = Math.min(1000, Math.max(240, window.innerWidth - 340));
+        const availableHeight = Math.max(240, window.innerHeight - 120);
+        const scale = Math.min(1, availableWidth / image.naturalWidth, availableHeight / image.naturalHeight);
+        const width = Math.round(image.naturalWidth * scale);
+        const height = Math.round(image.naturalHeight * scale);
 
         image.style.width = `${width}px`;
         image.style.height = `${height}px`;
         imageWrap.style.width = `${width}px`;
         imageWrap.style.height = `${height}px`;
-        controls.style.width = `${width}px`;
         text.style.width = `${width}px`;
       }
-
-      previous.addEventListener('click', () => showImage(currentIndex - 1));
-      next.addEventListener('click', () => showImage(currentIndex + 1));
       imagePrevious.addEventListener('click', () => showImage(currentIndex - 1));
       imageNext.addEventListener('click', () => showImage(currentIndex + 1));
       imageWrap.addEventListener('mousemove', (event) => {
@@ -177,6 +216,16 @@
       });
       window.addEventListener('resize', updateFrameSize);
       if (image.complete) updateFrameSize();
+    </script>
+    <script>
+      document.querySelectorAll('.mobile-menu-toggle').forEach((toggle) => {
+        const sidebar = toggle.closest('.sidebar');
+        if (!sidebar) return;
+        toggle.addEventListener('click', () => {
+          const isOpen = sidebar.classList.toggle('is-open');
+          toggle.setAttribute('aria-expanded', String(isOpen));
+        });
+      });
     </script>
     <div class="site-copyright">Copyright © 2026 Ying Yin</div>
   </body>

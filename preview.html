@@ -4,39 +4,66 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YIN Ying Preview</title>
-    <link rel="stylesheet" href="./src/styles.css" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260524-responsive" />
+    <style>
+      .image-page {
+        flex: 1 1 auto;
+        width: 100%;
+        margin-left: 0;
+        justify-content: flex-start;
+      }
+
+      .image-page .artwork-image {
+        width: auto;
+        max-width: min(800px, var(--content-area-width));
+        max-height: var(--image-max-height);
+        height: auto;
+      }
+    </style>
   </head>
-  <body>
+  <body class="home-page">
     <div class="site-shell">
       <aside class="sidebar" aria-label="Site navigation">
-        <a class="identity" href="./index.html" aria-current="page">
+        <a class="identity" href="./" aria-current="page">
           <span class="identity__name">YIN Ying</span>
           <span class="identity__chinese"><span>殷     </span><span class="identity__chinese-second">鶯</span></span>
         </a>
 
+        <button class="mobile-menu-toggle" type="button" aria-expanded="false">Menu</button>
+
         <nav class="site-nav">
           <div class="project-links">
-            <a href="./the-flowing-river-never-stops.html">The flowing river never stops</a>
-            <a href="./living-by-the-river.html">Living by the river</a>
-            <a href="./hypnopompic-hallucinations.html">Hypnopompic Hallucinations</a>
-            <a href="./wind-of-okhotsk.html">Wind of Okhotsk</a>
-            <a href="./american-dream-park.html">American Dream Park</a>
-            <a href="./traces-of-sentience.html">Traces of Sentience</a>
+            <a href="./the-flowing-river-never-stops/">The flowing river never stops</a>
+            <a href="./living-by-the-river/">Living by the river</a>
+            <a href="./hypnopompic-hallucinations/">Hypnopompic Hallucinations</a>
+            <a href="./wind-of-okhotsk/">Wind of Okhotsk</a>
+            <a href="./american-dream-park/">American Dream Park</a>
+            <a href="./traces-of-sentience/">Traces of Sentience</a>
           </div>
 
           <div class="utility-links">
-            <a href="./about.html">About</a>
-            <a href="./contact.html">Contact</a>
+            <a href="./about/">About</a>
+            <a href="./contact/">Contact</a>
           </div>
         </nav>
       </aside>
 
       <main class="content">
         <section class="image-page" aria-label="Home">
-          <img class="artwork-image" src="./public/images/home.jpg" alt="YIN Ying homepage artwork" />
+          <img class="artwork-image" src="./public/images/home.jpg?v=same-american-dream-park" alt="YIN Ying homepage artwork" />
         </section>
       </main>
     </div>
+    <script>
+      document.querySelectorAll('.mobile-menu-toggle').forEach((toggle) => {
+        const sidebar = toggle.closest('.sidebar');
+        if (!sidebar) return;
+        toggle.addEventListener('click', () => {
+          const isOpen = sidebar.classList.toggle('is-open');
+          toggle.setAttribute('aria-expanded', String(isOpen));
+        });
+      });
+    </script>
     <div class="site-copyright">Copyright © 2026 Ying Yin</div>
   </body>
 </html>

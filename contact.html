@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact - YIN Ying</title>
-    <link rel="stylesheet" href="./src/styles.css" />
+    <link rel="stylesheet" href="./src/styles.css?v=20260524-responsive" />
     <style>
       .content.content--about {
         justify-content: flex-start;
@@ -22,24 +22,26 @@
   <body>
     <div class="site-shell">
       <aside class="sidebar" aria-label="Site navigation">
-        <a class="identity" href="./index.html">
+        <a class="identity" href="./">
           <span class="identity__name">YIN Ying</span>
           <span class="identity__chinese"><span>殷     </span><span class="identity__chinese-second">鶯</span></span>
         </a>
 
+        <button class="mobile-menu-toggle" type="button" aria-expanded="false">Menu</button>
+
         <nav class="site-nav">
           <div class="project-links">
-            <a href="./the-flowing-river-never-stops.html">The flowing river never stops</a>
-            <a href="./living-by-the-river.html">Living by the river</a>
-            <a href="./hypnopompic-hallucinations.html">Hypnopompic Hallucinations</a>
-            <a href="./wind-of-okhotsk.html">Wind of Okhotsk</a>
-            <a href="./american-dream-park.html">American Dream Park</a>
-            <a href="./traces-of-sentience.html">Traces of Sentience</a>
+            <a href="./the-flowing-river-never-stops/">The flowing river never stops</a>
+            <a href="./living-by-the-river/">Living by the river</a>
+            <a href="./hypnopompic-hallucinations/">Hypnopompic Hallucinations</a>
+            <a href="./wind-of-okhotsk/">Wind of Okhotsk</a>
+            <a href="./american-dream-park/">American Dream Park</a>
+            <a href="./traces-of-sentience/">Traces of Sentience</a>
           </div>
 
           <div class="utility-links">
-            <a href="./about.html">About</a>
-            <a href="./contact.html" aria-current="page">Contact</a>
+            <a href="./about/">About</a>
+            <a href="./contact/" aria-current="page">Contact</a>
           </div>
         </nav>
       </aside>
@@ -47,10 +49,20 @@
       <main class="content content--about">
         <section class="contact-page" aria-label="Contact">
           <p class="body-copy-english">E-mail: tarot1_1@hotmail.com</p>
-          <p class="body-copy-english">Instagram: yin.ying__</p>
+          <p class="body-copy-english">Instagram: <a href="https://www.instagram.com/yin.ying__/" target="_blank" rel="noopener noreferrer">@yin.ying__</a></p>
         </section>
       </main>
     </div>
+    <script>
+      document.querySelectorAll('.mobile-menu-toggle').forEach((toggle) => {
+        const sidebar = toggle.closest('.sidebar');
+        if (!sidebar) return;
+        toggle.addEventListener('click', () => {
+          const isOpen = sidebar.classList.toggle('is-open');
+          toggle.setAttribute('aria-expanded', String(isOpen));
+        });
+      });
+    </script>
     <div class="site-copyright">Copyright © 2026 Ying Yin</div>
   </body>
 </html>
