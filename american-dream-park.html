@@ -84,7 +84,7 @@
         <article class="gallery-page gallery-page--american" aria-label="American Dream Park">
           <div class="gallery-frame">
             <div class="gallery-image-wrap">
-              <img class="artwork-image" src="./public/images/american-dream-park/01.jpg?v=20260522" alt="American Dream Park 01" />
+              <img class="artwork-image" src="./public/images/american-dream-park/01.jpg?v=20260522" alt="" />
               <button class="gallery-image-hit gallery-image-hit--previous" type="button" aria-label="Previous image"></button>
               <button class="gallery-image-hit gallery-image-hit--next" type="button" aria-label="Next image"></button>
               <span class="image-cursor" aria-hidden="true">→</span>
@@ -100,7 +100,7 @@
         const number = String(index + 1).padStart(2, '0');
         return {
           src: `./public/images/american-dream-park/${number}.jpg?v=20260522`,
-          alt: `American Dream Park ${number}`,
+          alt: "",
         };
       });
 

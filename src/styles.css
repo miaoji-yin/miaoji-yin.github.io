@@ -135,7 +135,7 @@ a[aria-current="page"] {
 }
 
 .utility-links {
-  margin-top: 3.4em;
+  margin-top: 1.7em;
 }
 
 .mobile-menu-toggle {
@@ -416,7 +416,7 @@ a[aria-current="page"] {
 .about-page {
   width: min(800px, var(--content-area-width));
   flex: 0 1 min(800px, var(--content-area-width));
-  margin-left: 70px;
+  margin-left: 0;
   font-size: var(--body-copy-size);
   line-height: var(--body-copy-line-height);
 }
@@ -479,6 +479,19 @@ a[aria-current="page"] {
   font-size: var(--body-copy-size);
   letter-spacing: var(--body-copy-letter-spacing);
   line-height: var(--body-copy-line-height);
+}
+
+.contact-image {
+  display: block;
+  width: auto;
+  height: 300px;
+  margin-top: 3.4em;
+  object-fit: contain;
+}
+
+.contact-image.portrait {
+  width: 300px;
+  height: auto;
 }
 
 .page-text,
@@ -691,6 +704,7 @@ p {
     height: auto !important;
     aspect-ratio: auto !important;
     object-fit: contain !important;
+    cursor: default !important;
   }
 
   .traces-images img {

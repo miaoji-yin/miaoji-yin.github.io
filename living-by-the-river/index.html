@@ -84,7 +84,7 @@
         <article class="gallery-page gallery-page--living" aria-label="Living by the river">
           <div class="gallery-frame">
             <div class="gallery-image-wrap">
-              <img class="artwork-image" src="../public/images/living-by-the-river/01.jpg" alt="Living by the river 01" />
+              <img class="artwork-image" src="../public/images/living-by-the-river/01.jpg" alt="" />
               <button class="gallery-image-hit gallery-image-hit--previous" type="button" aria-label="Previous image"></button>
               <button class="gallery-image-hit gallery-image-hit--next" type="button" aria-label="Next image"></button>
               <span class="image-cursor" aria-hidden="true">→</span>
@@ -100,7 +100,7 @@
         const number = String(index + 1).padStart(2, '0');
         return {
           src: `../public/images/living-by-the-river/${number}.jpg`,
-          alt: `Living by the river ${number}`,
+          alt: "",
         };
       });
 
