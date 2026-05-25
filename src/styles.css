@@ -667,7 +667,11 @@ p {
 
   .gallery-text > div + div,
   .traces-text > div + div {
-    margin-top: 0;
+    margin-top: 3.4em;
+  }
+
+  .hypnopompic-page .gallery-text .hypnopompic-text-column + .hypnopompic-text-column {
+    margin-top: 3.4em;
   }
 
   .traces-copy + .traces-feature-image,
