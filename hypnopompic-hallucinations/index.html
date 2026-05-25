@@ -313,7 +313,10 @@
       }
 
       gridImages.forEach((image, index) => {
-        image.addEventListener('click', () => openLightbox(index));
+        image.addEventListener('click', () => {
+          if (window.matchMedia('(max-width: 720px)').matches) return;
+          openLightbox(index);
+        });
       });
 
       imagePrevious.addEventListener('click', () => transitionLightboxImage(currentImageIndex - 1));

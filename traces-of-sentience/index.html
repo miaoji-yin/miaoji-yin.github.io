@@ -48,7 +48,11 @@
       .traces-text.is-stacked .traces-feature-image {
         width: 100%;
         height: auto;
-        margin-top: 3.4em;
+        margin-top: 1.7em;
+      }
+
+      .traces-text.is-stacked + .traces-images {
+        margin-top: 1.7em;
       }
 
       .traces-text h1 {
@@ -101,7 +105,7 @@
         flex-direction: column;
         gap: 18px;
         width: 100%;
-        margin-top: 5.1em;
+        margin-top: 3.4em;
       }
 
       .traces-images img {
@@ -192,8 +196,8 @@
         const baselineWidth = baselineImage ? baselineImage.getBoundingClientRect().width : tracesText.getBoundingClientRect().width;
         const containerWidth = Math.round(baselineWidth);
         const imageRatio = tracesFeatureImage.naturalWidth / tracesFeatureImage.naturalHeight;
-        const minTextWidth = 360;
-        const minColumnGap = 70;
+        const minTextWidth = 300;
+        const minColumnGap = 30;
         const maxTextWidth = Math.max(minTextWidth, containerWidth - minColumnGap - 40);
         let textWidth = null;
         let imageWidth = null;

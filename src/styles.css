@@ -10,11 +10,11 @@
   --media-aspect-height: calc(var(--media-width) * 533 / 800);
   --image-max-width: min(1000px, var(--content-area-width));
   --image-max-height: max(240px, calc(100vh - 120px));
-  --body-copy-font: Karla, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  --body-copy-font: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
   --about-latin-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --body-copy-size: 10.5px;
   --body-copy-chinese-size: 12.5px;
-  --body-copy-english-size: 13.5px;
+  --body-copy-english-size: 12.5px;
   --body-copy-line-height: 1.55;
   --body-copy-color: #000000;
   --body-copy-letter-spacing: 0.03em;
@@ -451,6 +451,10 @@ a[aria-current="page"] {
   font-weight: 600;
 }
 
+.about-page .about-spaced-line {
+  margin-top: 1.7em;
+}
+
 .about-page h1 {
   margin: 0 0 1.7em;
   font-size: 18px;
@@ -515,9 +519,6 @@ p {
     align-items: center;
   }
 
-  .gallery-page--american .gallery-frame {
-    align-items: flex-start;
-  }
 }
 
 @media (max-width: 720px) {
@@ -538,11 +539,11 @@ p {
   .sidebar {
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
+    left: var(--mobile-gap);
+    right: auto;
+    width: var(--content-area-width);
     min-height: 0;
-    padding: var(--mobile-gap) var(--mobile-gap) 24px;
+    padding: var(--mobile-gap) 0 24px;
     z-index: 30;
     background: #ffffff;
   }
@@ -553,7 +554,7 @@ p {
 
   .mobile-menu-toggle {
     position: absolute;
-    top: 0;
+    top: var(--mobile-gap);
     right: 0;
     display: block;
   }
@@ -653,7 +654,7 @@ p {
 
   .gallery-text > div + div,
   .traces-text > div + div {
-    margin-top: 3.4em;
+    margin-top: 0;
   }
 
   .traces-copy + .traces-feature-image,
@@ -661,17 +662,21 @@ p {
     width: var(--content-area-width) !important;
     max-width: none !important;
     height: auto !important;
-    margin-top: 0 !important;
+    margin-top: 1.7em !important;
   }
 
   .traces-copy {
-    min-height: calc(var(--content-area-width) * 0.8);
+    min-height: 0;
   }
 
   .hypnopompic-inner,
   .wind-grid,
   .traces-inner {
     width: var(--content-area-width) !important;
+  }
+
+  .traces-images {
+    margin-top: 1.7em !important;
   }
 
   .hypnopompic-grid,
