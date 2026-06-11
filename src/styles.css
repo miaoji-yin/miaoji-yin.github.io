@@ -455,6 +455,12 @@ a[aria-current="page"] {
   margin-top: 1.7em;
 }
 
+.about-page .about-external-link {
+  color: rgb(128, 128, 128);
+  border-bottom: 1px dashed rgb(128, 128, 128);
+  text-decoration: none;
+}
+
 .about-page h1 {
   margin: 0 0 1.7em;
   font-size: 18px;
